@@ -4,7 +4,13 @@ import APIUsers from "../../../api/APIUsers"
 import { UserData, UserState } from "../../../types"
 
 const initialState: UserState = {
-    data: [],
+    data: {
+        data: [],
+        page: 1,
+        per_page: 10,
+        total: 0,
+        total_pages: 0,
+    },
     loading: false,
     status: "idle",
     error: undefined,
@@ -38,7 +44,7 @@ const userSlice = createSlice({
             .addCase(fetchUsers.pending, (state) =>{
                 state.status = "loading"
             })
-            .addCase(fetchUsers.fulfilled, (state, action : PayloadAction<UserData[]>) => {
+            .addCase(fetchUsers.fulfilled, (state, action : PayloadAction<UserData>) => {
                 state.status = "success";
                 state.data = action.payload;
                 state.loading = false; 
@@ -50,7 +56,7 @@ const userSlice = createSlice({
             .addCase(fetchUserDetails.pending, (state) => {
                 state.status = "loading"
             })
-            .addCase(fetchUserDetails.fulfilled, (state, action : PayloadAction<UserData[]>) => {
+            .addCase(fetchUserDetails.fulfilled, (state, action : PayloadAction<UserData>) => {
                 state.status = "success";
                 state.data = action.payload;
                 state.loading = false;

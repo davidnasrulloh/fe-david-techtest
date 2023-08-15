@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import { fetchUsers } from "../store/Feature/FeaturesUsers/userSlice";
 import { unwrapResult  } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { User } from "../types";
+import { User, UserData } from "../types";
 
 
 const UsersPage = () => {
 
     const dispatch = useDispatch();
     const dataUserList = useSelector((state: RootState) => state.users.data);
-    const { data, page, total_pages } = dataUserList;
+    const { data, page, total_pages } : UserData = dataUserList;
     const status = useSelector((state: RootState) => state.users.status);
 
     const [pageNumber, setPageNumber] = useState(page);

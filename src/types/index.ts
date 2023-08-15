@@ -1,22 +1,22 @@
-export type User = {
+export interface User {
     id: number; 
     email: string;
     first_name: string;
     last_name: string;
     avatar: string
-};
+}
 
-export type UserData = {
+export interface UserData {
     data: User[];
     page: number;
     per_page: number;
     total: number;
-    total_page: number
+    total_pages: number
 }
 
-export type UserState = {
-    data: UserData[];
+export interface UserState {
+    data: UserData;
     loading: boolean;
     status: 'idle' | 'loading' | 'success' | 'failed';
     error?: string;
-};
+}
