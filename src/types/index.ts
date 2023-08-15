@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export interface User {
     id: number; 
     email: string;
@@ -20,3 +22,23 @@ export interface UserState {
     status: 'idle' | 'loading' | 'success' | 'failed';
     error?: string;
 }
+
+export interface UserDetailState {
+    data: User;
+    loading: boolean;
+    status: 'idle' | 'loading' | 'success' | 'failed';
+    error?: string;
+}
+
+export interface CustomButtonProps {
+    title: string;
+    containerStyle?: string;
+    handleClick?: MouseEventHandler<HTMLButtonElement>;
+    btnType?: "button" | "submit"
+    textStyle?: string;
+    rightIcon?: string;
+    isDisabled?: boolean;
+}
+
+
+

@@ -1,0 +1,103 @@
+
+// import { NavHashLink } from 'react-router-hash-link';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { davidImg } from '../assets';
+// import styles from '../dist/style';
+
+import { AiFillCloseCircle } from './../../node_modules/react-icons/ai';
+import { HiMenu } from './../../node_modules/react-icons/hi';
+import styles from '../dist/style';
+
+const Navbar = () => {
+
+    const [nav, setNav] = useState(false);
+
+    const openNavHandler = () => {
+        setNav((prev)=>{
+            return !prev
+        })
+    }
+
+    return (
+        <>
+            <nav>
+                {/* Mobile Navbar*/}
+                <div className={`mobile-navbar ${nav ? "open-nav" : ""} px-28`}>
+                    <div className='flex flex-row justify-center w-full mb-10'>
+                        <div className='flex flex-row mr-10'>
+                            <img src={davidImg} className='w-20 rounded-full mr-3'/>
+                            <p className='my-auto text-[20px] font-semibold'>David Nasrulloh</p>
+                        </div>
+                        <div onClick={openNavHandler} className='my-auto'>
+                            <AiFillCloseCircle fontSize="3.5em" color="#2c30f2" />
+                        </div>
+                    </div>
+                    <ul className='mobile-navbar_links md:w-1/2 w-1/3'>
+                        <li className='w-full'>
+                            <Link
+                                onClick={openNavHandler}
+                                to="/">
+                                Login
+                            </Link>
+                        </li>
+                        <li className='w-full'>
+                            <Link
+                                onClick={openNavHandler}
+                                to="/users">
+                                List User
+                            </Link>
+                        </li>
+                        <li className='w-full'>
+                            <Link
+                                onClick={openNavHandler}
+                                to="/overview">
+                                Overview
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Dekstop View */}
+                <div className={`navbar ${styles.paddingX}`}>
+                    <Link to="/" onClick={()=>window.scrollTo(0,0)}>
+                        <div className='flex flex-row'>
+                            <img src={davidImg} className='w-20 rounded-full mr-4 md:mr-8'/>
+                            <p className='my-auto text-[24px] md:text-[28px] text-blue-900'><span className='font-bold'>David</span> Nasrulloh</p>
+                        </div>
+                    </Link>
+                    <ul className="navbar_links text-2xl md:w-1/2 xl:w-3/4 gap-10 font-semibold pl-0 md:pl-10">
+                        <li className='mr-10'>
+                            <Link
+                                to="/">
+                                Login
+                            </Link>
+                        </li>
+                        <li className='mr-10'>
+                            <Link
+                                onClick={openNavHandler}
+                                to="/users">
+                                List User
+                            </Link>
+                        </li>
+                        <li className=''>
+                            <Link
+                                onClick={openNavHandler}
+                                to="/overview">
+                                Overview
+                            </Link>
+                        </li>
+                    </ul>
+
+                    <div className="mobile-hamb" onClick={openNavHandler}>
+                        <HiMenu fontSize="2em"/>
+                    </div>
+                </div>
+
+                
+            </nav>
+        </>
+    )
+}
+
+export default Navbar;

@@ -1,12 +1,11 @@
 import axiosInstance from "../config/AxiosIntance";
 
 const APIUsers = {
+
     async getAllUsers(page: number){
         try {
             const response = await axiosInstance.get(`/users?page=${page}`);
-            // console.log(response.data.data)
             return response;
-            
         } catch (error) {
             console.log(error);
         }
@@ -15,6 +14,7 @@ const APIUsers = {
     async getDetailsUser(id: number){
         try {
             const response = await axiosInstance.get(`/users/${id}`)
+            console.log(response)
             return response;
         } catch (error) {
             console.log(error);

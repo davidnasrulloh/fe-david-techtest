@@ -6,6 +6,9 @@ import { fetchUsers } from "../store/Feature/FeaturesUsers/userSlice";
 import { unwrapResult  } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { User, UserData } from "../types";
+import styles from "../dist/style";
+import Navbar from "../components/Navbar";
+import CardUser from "../components/CardUser";
 
 
 const UsersPage = () => {
@@ -14,7 +17,6 @@ const UsersPage = () => {
     const dataUserList = useSelector((state: RootState) => state.users.data);
     const { data, page, total_pages } : UserData = dataUserList;
     const status = useSelector((state: RootState) => state.users.status);
-
     const [pageNumber, setPageNumber] = useState(page);
 
     // console.log(dataUserList);
@@ -41,36 +43,45 @@ const UsersPage = () => {
                 });
     }
 
+    // const buttonClickHandler = () => {
+    //     dispatch(fetchUsers(page))
+    //     .then(unwrapResult)
+    //     .catch((err: AxiosError) => {
+    //         console.log(err);
+    //     });
+    // }
+
+    
+
     return (
         <div>
-            <h2>User List</h2>
+            <Navbar />
+
+            <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-10 mt-52`}>
+                <div className="flex flex-row gap-10">
+                    {Array.from({ length: total_pages }, (_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handlePageChange(index + 1)}
+                            disabled={pageNumber === index + 1}
+                            className="text-3xl p-4 bg-gray-200 border-4 border-gray-300 w-20 h-20 rounded-full"
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
+            </div>
             {status === "loading" && <p>Loading...</p>}
             {status === "success" && (
                 <>
-                    <div>
-                        {Array.from({ length: total_pages }, (_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handlePageChange(index + 1)}
-                                disabled={pageNumber === index + 1}
-                            >
-                                {index + 1}
-                            </button>
+                    <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-12 md:gap-20 mt-16`}>
+                        {data.map((user: User) => (
+                            <CardUser {...user} key={user.id}/>
                         ))}
                     </div>
-                    <ul>
-                        Hai {total_pages}
-                        {data.map((user: User) => (
-                            <div key={user.id}>
-                                <li>{user.first_name} {user.last_name} {user.id}</li>
-                                <img src={user.avatar} alt={user.first_name}/>
-                            </div>
-                        ))}
-                    </ul>
-                    
                 </>
             )}
-            {status === "failed" && <p>Failed to fetch users.</p>}
+        
         </div>
     );
 }

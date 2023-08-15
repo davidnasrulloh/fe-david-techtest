@@ -1,30 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createAsyncThunk, createSlice, PayloadAction  } from "@reduxjs/toolkit"
 import APIUsers from "../../../api/APIUsers"
-import { UserData, UserState } from "../../../types"
+import { User, UserDetailState } from "../../../types"
 
-const initialState: UserState = {
+const initialState: UserDetailState = {
     data: {
-        data: [],
-        page: 1,
-        per_page: 10,
-        total: 0,
-        total_pages: 0,
+        id: 0, 
+        email: "string",
+        first_name: "string",
+        last_name: "string",
+        avatar: "string"
     },
     loading: false,
     status: "idle",
     error: 'undefined',
 }
-
-
-export const fetchUsers = createAsyncThunk("fetch/users", async(page: number)=>{
-    try {
-        const res = await APIUsers.getAllUsers(page)
-        return res?.data;
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 export const fetchUserDetails = createAsyncThunk("fetch/userDetails", async(id: number)=>{
     try {
@@ -35,21 +25,21 @@ export const fetchUserDetails = createAsyncThunk("fetch/userDetails", async(id: 
     }
 })
 
-const userSlice = createSlice({
-    name: "users",
+const userDetailSlice = createSlice({
+    name: "usersdetails",
     initialState,
     reducers: {},
     extraReducers(builder){
         builder
-            .addCase(fetchUsers.pending, (state) =>{
+            .addCase(fetchUserDetails.pending, (state) => {
                 state.status = "loading"
             })
-            .addCase(fetchUsers.fulfilled, (state, action : PayloadAction<UserData>) => {
+            .addCase(fetchUserDetails.fulfilled, (state, action : PayloadAction<User>) => {
                 state.status = "success";
                 state.data = action.payload;
-                state.loading = false; 
+                state.loading = false;
             })
-            .addCase(fetchUsers.rejected, (state, action)=>{
+            .addCase(fetchUserDetails.rejected, (state, action)=>{
                 state.status = "failed";
                 state.loading = false;
                 state.error = action.error.message;
@@ -57,4 +47,4 @@ const userSlice = createSlice({
     }
 })
 
-export default userSlice.reducer;
+export default userDetailSlice.reducer;
