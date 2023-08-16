@@ -8,7 +8,7 @@ export default {
     extend: {
       screens: {
 
-        'xsm': '400px',
+        'xsm': '280px',
 
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
@@ -22,7 +22,7 @@ export default {
         'xl': '1280px',
         // => @media (min-width: 1280px) { ... }
   
-        '2xl': '1536px',
+        '2xl': '1520px',
         // => @media (min-width: 1536px) { ... }
       
         '3xl': '1720px',

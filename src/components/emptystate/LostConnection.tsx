@@ -1,4 +1,3 @@
-import React from 'react'
 import { notFoundStyle } from '../../dist/style'
 import { lostConnectionIlustration } from '../../assets'
 import CustomButton from '../CustomButton'
@@ -9,6 +8,7 @@ interface Props {
 }
 
 const LostConnection = ({buttonClickHandler}:Props) => {
+    
     return (
         <>
             <div className={`${notFoundStyle.container}`}>
@@ -20,7 +20,7 @@ const LostConnection = ({buttonClickHandler}:Props) => {
                     <p className='text-gray-400 text-xl md:text-2xl mt-4 text-center'>Sorry, the page you’re looking for <br/> can’t be found</p>
                     <div className='mt-8'>
                         <CustomButton
-                            title='Try Again'
+                            title='Go User Page & Refresh'
                             textStyle='text-2xl'
                             handleClick={buttonClickHandler}
                         />

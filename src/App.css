@@ -13,6 +13,7 @@ body {
     background-color: #ffffff;
     font-family: "Poppins", sans-serif;
     position: relative;
+    min-width: 300px;
 }
 
 
@@ -20,7 +21,7 @@ body {
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: #2c30f2 #ffffff;
+    scrollbar-color: #5356ff #ffffff;
 }
 
 
@@ -46,15 +47,15 @@ body {
 
 *::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: #2c30f2;
+    background-color: #5356ff;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background-color: #2c30f2;
+    background-color: #5356ff;
 }
 
 *::-webkit-scrollbar-thumb:active {
-    background-color: #2c30f2;
+    background-color: #5356ff;
 }
 
 .mobile-navbar {

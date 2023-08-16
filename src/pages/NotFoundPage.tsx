@@ -13,7 +13,7 @@ const NotFoundPage = () => {
 
     return (
         <>
-            <div className={`${notFoundStyle.container}`}>
+            <div className={`${notFoundStyle.container} max-h-screen`}>
                 <div className='w-full mx-auto'>
                     <img src={notFoundIlustration} alt="not found ilustration" className='w-2/4 md:w-1/3 lg:w-1/4 mx-auto' />
                 </div>

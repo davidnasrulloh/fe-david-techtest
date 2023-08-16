@@ -20,10 +20,6 @@ const UsersPage = () => {
     const status = useSelector((state: RootState) => state.users.status);
     const [pageNumber, setPageNumber] = useState(page);
 
-    // console.log(dataUserList);
-    // console.log(userList);
-    // console.log(pageNumber)
-
     useEffect(() => {
         if (status === 'idle') {
             dispatch(fetchUsers(pageNumber))
@@ -42,17 +38,7 @@ const UsersPage = () => {
                 .catch((err: AxiosError) => {
                     console.log(err);
                 });
-    }
-
-    // const buttonClickHandler = () => {
-    //     dispatch(fetchUsers(page))
-    //     .then(unwrapResult)
-    //     .catch((err: AxiosError) => {
-    //         console.log(err);
-    //     });
-    // }
-
-    
+    }    
 
     return (
         <div>
