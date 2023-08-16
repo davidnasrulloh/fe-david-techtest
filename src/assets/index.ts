@@ -3,11 +3,13 @@ import loginIlustration from "./images/login-illustration.png"
 import lostConnectionIlustration from "./images/lost-conn-illustration.png"
 import notFoundIlustration from "./images/not-found-illustration.png"
 import overviewIlustration from "./images/overview-illustration.png"
+import loadingIlustration from "./images/loading.gif"
 
 export {
     davidImg,
     loginIlustration,
     lostConnectionIlustration,
     notFoundIlustration,
-    overviewIlustration
+    overviewIlustration,
+    loadingIlustration
 }

@@ -1,10 +1,15 @@
-import { User } from '../types'
+import styles from '../dist/style'
+import { loadingIlustration } from '../assets'
 
 
-const Loading = ({id, email, first_name, last_name}: User) => {
+const Loading = () => {
     return (
-        <div>
-            
+        <div className={`${styles.paddingX} ${styles.paddingY} flex flex-row max-h-screen`}>
+            <div className={`${styles.flexCenter} w-full mt-32`}>
+                <img src={loadingIlustration} alt="loading" className='my-auto' />
+            </div>
         </div>
     )
 }
+
+export default Loading;

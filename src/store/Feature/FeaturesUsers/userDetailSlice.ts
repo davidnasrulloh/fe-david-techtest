@@ -6,10 +6,10 @@ import { User, UserDetailState } from "../../../types"
 const initialState: UserDetailState = {
     data: {
         id: 0, 
-        email: "string",
-        first_name: "string",
-        last_name: "string",
-        avatar: "string"
+        email: "",
+        first_name: "",
+        last_name: "",
+        avatar: ""
     },
     loading: false,
     status: "idle",

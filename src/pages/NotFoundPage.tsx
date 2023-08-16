@@ -22,11 +22,12 @@ const NotFoundPage = () => {
                     <p className='text-gray-400 text-xl md:text-2xl mt-4 text-center'>Sorry, the page you’re looking for <br/> can’t be found</p>
                     <div className='mt-8'>
                         <CustomButton
-                            title='Go To Login Page'
-                            textStyle='text-2xl'
-                            handleClick={buttonClickHandler}
-                        />
+                                title='Go To Login Page'
+                                textStyle="text-2xl font-semibold"
+                                handleClick={buttonClickHandler}
+                            />
                     </div>
+                    
                 </div>
             </div>
         </>

@@ -119,7 +119,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: white;
     z-index: 99999;
     margin: 0 auto;
 }
@@ -146,4 +145,19 @@ body {
     .navbar_links {
         display: none;
     }
+}
+
+.blue__gradient {
+    background: linear-gradient(180deg, rgba(44, 22, 110, 0) 0%, #8a6aff 250%);
+    filter: blur(123px);
+}
+
+.pink__gradient {
+    background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+    filter: blur(900px);
+}
+
+.white__gradient {
+    background: rgba(161, 134, 255, 0.6);
+    filter: blur(750px);
 }

@@ -9,6 +9,7 @@ import { User, UserData } from "../types";
 import styles from "../dist/style";
 import Navbar from "../components/Navbar";
 import CardUser from "../components/CardUser";
+import Loading from "../components/Loading";
 
 
 const UsersPage = () => {
@@ -55,7 +56,7 @@ const UsersPage = () => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar backgroundStyle="bg-white" />
 
             <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-10 mt-52`}>
                 <div className="flex flex-row gap-10">
@@ -64,24 +65,22 @@ const UsersPage = () => {
                             key={index}
                             onClick={() => handlePageChange(index + 1)}
                             disabled={pageNumber === index + 1}
-                            className="text-3xl p-4 bg-gray-200 border-4 border-gray-300 w-20 h-20 rounded-full"
-                        >
+                            className="text-3xl text-gray-700 font-medium p-4 bg-gray-100 border-4 border-gray-100 w-20 h-20 rounded-full disabled:bg-blue-100 disabled:border-blue-200 hover:border-gray-200">
                             {index + 1}
                         </button>
                     ))}
                 </div>
             </div>
-            {status === "loading" && <p>Loading...</p>}
+            {status === "loading" && <><Loading/></>}
             {status === "success" && (
                 <>
-                    <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-12 md:gap-20 mt-16`}>
+                    <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-12 md:gap-20 my-16`}>
                         {data.map((user: User) => (
                             <CardUser {...user} key={user.id}/>
                         ))}
                     </div>
                 </>
             )}
-        
         </div>
     );
 }

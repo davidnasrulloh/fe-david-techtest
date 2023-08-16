@@ -7,17 +7,19 @@ const APIUsers = {
             const response = await axiosInstance.get(`/users?page=${page}`);
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+            return error;
         }
     },
 
     async getDetailsUser(id: number){
         try {
             const response = await axiosInstance.get(`/users/${id}`)
-            console.log(response)
+            // console.log(response)
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+            return error;
         }
     }
 }
