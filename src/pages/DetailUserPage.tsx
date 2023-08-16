@@ -69,6 +69,8 @@ const DetailUserPage = () => {
         window.location.reload();
     }
 
+    console.log(userData)
+
     return (
         <>
             <Navbar backgroundStyle="bg-white"/>
@@ -78,7 +80,7 @@ const DetailUserPage = () => {
                     <div className="w-full lg:w-1/2 flex flex-col justify-start gap-10 mx-auto lg:mx-0">
                         <Link to="/users">
                             <div className="flex flex-row gap-4 justify-center lg:justify-start text-blue-600 hover:text-blue-500 transition delay-75">
-                                <IoMdArrowRoundBack fontSize="2.8rem"/>
+                                {userData?.id !== 0 ? <IoMdArrowRoundBack fontSize="2.8rem"/> : "" }
                                 <p className="my-auto text-4xl font-bold">{userData?.first_name} {userData?.last_name}</p>
                             </div>
                         </Link>

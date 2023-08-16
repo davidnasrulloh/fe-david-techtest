@@ -7,9 +7,36 @@ import { IoMdMail } from './../../node_modules/react-icons/io';
 import { FaLock } from './../../node_modules/react-icons/fa';
 import CustomButton from "../components/CustomButton";
 import { motion } from 'framer-motion';
+import { useState, ChangeEvent } from 'react';
+import CustomInput from "../components/CustomInput";
 
 
 const LoginPage = () => {
+
+    const [data, setData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const onChangeDataHandler = (ev: ChangeEvent<HTMLInputElement>) => {
+        setData({
+            ...data,
+            [ev.target.name]: ev.target.value
+        })
+    } 
+
+    const onSubmitHandler = () => {
+        if(data.email !== "" && data.password !== ""){
+            alert(`
+                Email kamu ${data.email}
+                Password kamu ${data.password} 
+            `);
+            setData({
+                email: "",
+                password: ""
+            })
+        }
+    } 
 
     return (
         <>
@@ -47,22 +74,33 @@ const LoginPage = () => {
                     </h3>
                     <p className="text-gray-400 text-xl sm:text-2xl w-full xl:w-2/3 leading-relaxed">Kami merindukan Anda. Masukkan email dan password informasi akun Anda untuk melanjutkan.</p>
                     
-                    <form action="" method="" className="mt-12 flex flex-col w-full">
-                        <label htmlFor="input-group-1" className="block mb-0 text-xl font-medium text-gray-900 dark:text-white">Your Email</label>
-                        <div className="relative mb-6">
-                            <div className={`${loginStyle.inputLabel} absolute flex items-center`}>
-                                <IoMdMail fontSize="1.8rem" color="#595555"/>
-                            </div>
-                            <input type="text" id="input-group-1" className={`${loginStyle.inputStyle}`} placeholder="name@email.com" />
-                        </div>
+                    <form action="" method="" onSubmit={onSubmitHandler} className="mt-12 flex flex-col w-full">
+                        
+                        <CustomInput
+                            name="email"
+                            label="Email Kamu"
+                            handleChange={onChangeDataHandler}
+                            inputStyle={`${loginStyle.inputStyle}`}
+                            inputType="text"
+                            placeholder="name@email.com"
+                            value={data.email}
+                            labelStyle="text-gray-900"
+                            leadingIcon={<IoMdMail fontSize="1.8rem" color="#595555"/>}
+                            iconStyle={`${loginStyle.inputLabel}`}
+                        />
 
-                        <label htmlFor="input-group-2" className="block mb-0 text-xl font-medium text-gray-900 dark:text-white">Your Password</label>
-                        <div className="relative mb-6">
-                            <div className={`${loginStyle.inputLabel} absolute flex items-center`}>
-                                <FaLock fontSize="1.8rem" color="#595555"/>
-                            </div>
-                            <input type="password" id="input-group-2" className={`${loginStyle.inputStyle}`} placeholder="Password milik anda" />
-                        </div>
+                        <CustomInput
+                            name="password"
+                            label="Password Kamu"
+                            handleChange={onChangeDataHandler}
+                            inputStyle={`${loginStyle.inputStyle}`}
+                            inputType="password"
+                            placeholder="Password milik anda"
+                            value={data.password}
+                            labelStyle="text-gray-900"
+                            leadingIcon={<FaLock fontSize="1.8rem" color="#595555"/>}
+                            iconStyle={`${loginStyle.inputLabel}`}
+                        />
 
                         <div className="xl:w-1/4 lg:w-1/2 mt-10">
                             <CustomButton

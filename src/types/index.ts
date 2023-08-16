@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ChangeEvent } from "react";
 
 export interface User {
     id: number; 
@@ -38,6 +38,21 @@ export interface CustomButtonProps {
     textStyle?: string;
     rightIcon?: React.ReactNode;
     isDisabled?: boolean;
+}
+
+export interface CustomInputProps {
+    name: string;
+    inputStyle?: string;
+    handleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    inputType?: "text" | "number" | "password";
+    placeholder?: string;
+    value?: string | number;
+    labelStyle?: string;
+    leadingIcon?: React.ReactNode;
+    isDisabled?: boolean;
+    iconStyle?: string;
+    color?: string;
+    label?: string;
 }
 
 
