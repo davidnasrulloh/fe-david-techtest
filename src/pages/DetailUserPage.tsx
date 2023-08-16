@@ -27,29 +27,49 @@ const DetailUserPage = () => {
     const status = useSelector((state: RootState) => state.usersdetails.status);
 
     const [error, setError] = useState<string | null>(null);
+    const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
 
     useEffect(() => {
+        window.addEventListener("online", updateOnlineStatus);
+        window.addEventListener("offline", updateOnlineStatus);
+
+        return () => {
+            window.removeEventListener("online", updateOnlineStatus);
+            window.removeEventListener("offline", updateOnlineStatus);
+        };
+    }, []);
+
+    const updateOnlineStatus = () => {
+        setIsOnline(navigator.onLine);
+    };
+
+    useEffect(() => {
+
+        if(!isOnline){
+            return;
+        }
 
         if (id === undefined) {
             return;
         }
-        const numericId = parseInt(id, 10);
 
-        if (status === 'idle') {
+        const numericId = parseInt(id, 10);
+        
+
+        if (status === 'idle' && isOnline) {
             dispatch(fetchUserDetails(numericId))
                 .then(unwrapResult)
                 .then((user : UserDetailState) => {
                     setUserData(user.data)
                 })
                 .catch((err: AxiosError) => {
-                    // console.log(err)
                     setError(err.message);
                 });
         }
 
         
     
-        if(userData.id?.toString() !== id){
+        if((userData.id?.toString() !== id) && isOnline){
             if(numericId <= totalDataUser){
                 dispatch(fetchUserDetails(numericId))
                 .then(unwrapResult)
@@ -62,7 +82,7 @@ const DetailUserPage = () => {
             }
         } 
 
-    }, [dispatch, status, id, userData, totalDataUser]);
+    }, [dispatch, status, id, userData, totalDataUser, isOnline]);
     
 
     const buttonTryAgainClick = () => {
@@ -96,7 +116,7 @@ const DetailUserPage = () => {
                 </div>
             )}
 
-            {error === "Cannot read properties of undefined (reading 'data')" && 
+            {(!isOnline || error === "Cannot read properties of undefined (reading 'data')" ) && 
                 <>
                     <LostConnection buttonClickHandler={buttonTryAgainClick}/>
                 </>

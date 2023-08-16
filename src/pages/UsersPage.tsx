@@ -11,35 +11,66 @@ import styles from "../dist/style";
 import Navbar from "../components/Navbar";
 import CardUser from "../components/CardUser";
 import Loading from "../components/Loading";
+import LostConnection from "../components/emptystate/LostConnection";
+import { useNavigate } from "react-router-dom";
 
 
 const UsersPage = () => {
 
     const dispatch = useDispatch<any>();
+    const navigate = useNavigate();
+
     const dataUserList = useSelector((state: RootState) => state.users.data);
     const { data, page, total_pages } : UserData = dataUserList;
     const status = useSelector((state: RootState) => state.users.status);
     const [pageNumber, setPageNumber] = useState(page);
 
+    const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
+
+
     useEffect(() => {
-        if (status === 'idle') {
+        window.addEventListener("online", updateOnlineStatus);
+        window.addEventListener("offline", updateOnlineStatus);
+
+        return () => {
+            window.removeEventListener("online", updateOnlineStatus);
+            window.removeEventListener("offline", updateOnlineStatus);
+        };
+    }, []);
+
+    const updateOnlineStatus = () => {
+        setIsOnline(navigator.onLine);
+    };
+
+    useEffect(() => {
+
+        if(!isOnline){
+            return;
+        }
+
+        if (status === 'idle' && isOnline ) {
             dispatch(fetchUsers(pageNumber))
                 .then(unwrapResult)
                 .catch((err: AxiosError) => {
-                    console.log(err);
+                    return err;
                 });
         }
 
-    }, [dispatch, status, pageNumber]);
+    }, [dispatch, status, pageNumber, isOnline]);
 
     const handlePageChange = (newPage: number) => {
         setPageNumber(newPage);
         dispatch(fetchUsers(newPage))
                 .then(unwrapResult)
                 .catch((err: AxiosError) => {
-                    console.log(err);
+                    return err;
                 });
-    }    
+    }
+    
+    const buttonTryAgainClick = () => {
+        navigate('/users')
+        window.location.reload();
+    }
 
     return (
         <div>
@@ -68,6 +99,12 @@ const UsersPage = () => {
                     </div>
                 </>
             )}
+
+            {!isOnline && 
+                <>
+                    <LostConnection buttonClickHandler={buttonTryAgainClick}/>
+                </>
+            }
         </div>
     );
 }
