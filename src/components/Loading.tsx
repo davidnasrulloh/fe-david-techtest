@@ -1,4 +1,4 @@
-import styles from '../dist/style'
+import styles from '../styles/style'
 import { loadingIlustration } from '../assets'
 
 

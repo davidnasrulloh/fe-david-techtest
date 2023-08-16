@@ -1,5 +1,5 @@
 import { CustomButtonProps } from '../types';
-import { buttonStyle } from '../dist/style';
+import { buttonStyle } from '../styles/style';
 import { motion } from 'framer-motion';
 
 const CustomButton = ({title, containerStyle, handleClick, btnType, textStyle, rightIcon} : CustomButtonProps) => {

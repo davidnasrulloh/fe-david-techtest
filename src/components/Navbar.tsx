@@ -7,7 +7,7 @@ import { davidImg } from '../assets';
 
 import { AiFillCloseCircle } from './../../node_modules/react-icons/ai';
 import { HiMenu } from './../../node_modules/react-icons/hi';
-import styles from '../dist/style';
+import styles from '../styles/style';
 
 interface propsNavbar{
     backgroundStyle?: string

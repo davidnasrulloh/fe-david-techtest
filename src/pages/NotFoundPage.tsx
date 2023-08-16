@@ -1,7 +1,7 @@
 import { notFoundIlustration } from '../assets'
 import CustomButton from '../components/CustomButton'
 import { useNavigate } from 'react-router-dom'
-import { notFoundStyle } from '../dist/style'
+import { notFoundStyle } from '../styles/style'
 
 const NotFoundPage = () => {
 

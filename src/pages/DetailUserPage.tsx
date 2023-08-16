@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import Navbar from "../components/Navbar"
 import { useNavigate, useParams } from "react-router-dom";
-import styles from "../dist/style";
+import styles from "../styles/style";
 import { RootState } from "../store/Feature";
 import { useEffect, useState } from 'react';
 import { AxiosError } from "axios";

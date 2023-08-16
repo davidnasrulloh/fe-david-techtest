@@ -1,4 +1,4 @@
-import { notFoundStyle } from '../../dist/style'
+import { notFoundStyle } from '../../styles/style'
 import { lostConnectionIlustration } from '../../assets'
 import CustomButton from '../CustomButton'
 import { MouseEventHandler } from 'react';

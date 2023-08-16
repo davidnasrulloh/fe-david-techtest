@@ -7,7 +7,7 @@ import { fetchUsers } from "../store/Feature/FeaturesUsers/userSlice";
 import { unwrapResult  } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { User, UserData } from "../types";
-import styles from "../dist/style";
+import styles from "../styles/style";
 import Navbar from "../components/Navbar";
 import CardUser from "../components/CardUser";
 import Loading from "../components/Loading";

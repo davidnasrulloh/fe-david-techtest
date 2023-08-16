@@ -3,7 +3,7 @@
 import { overviewIlustration } from "../assets";
 import CustomButton from "../components/CustomButton";
 import Navbar from "../components/Navbar";
-import styles from "../dist/style";
+import styles from "../styles/style";
 import { FaArrowRight } from './../../node_modules/react-icons/fa';
 import { motion } from "framer-motion"
 
