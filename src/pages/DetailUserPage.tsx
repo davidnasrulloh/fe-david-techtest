@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch, useSelector } from "react-redux"
 import Navbar from "../components/Navbar"
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,17 +7,17 @@ import { RootState } from "../store/Feature";
 import { useEffect, useState } from 'react';
 import { AxiosError } from "axios";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { fetchUserDetails } from "../store/Feature/FeaturesUsers/userSlice";
 import { UserDetailState } from "../types";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import LostConnection from "../components/emptystate/LostConnection";
 import Loading from "../components/Loading";
+import { fetchUserDetails } from "../store/Feature/FeaturesUsers/userDetailSlice";
 
 
 const DetailUserPage = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const {id} = useParams();
     const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const DetailUserPage = () => {
         const numericId = parseInt(id, 10);
 
         if (status === 'idle') {
-            dispatch(fetchUserDetails(id))
+            dispatch(fetchUserDetails(numericId))
                 .then(unwrapResult)
                 .then((user : UserDetailState) => {
                     setUserData(user.data)
@@ -68,8 +69,6 @@ const DetailUserPage = () => {
         navigate('/users')
         window.location.reload();
     }
-
-    console.log(userData)
 
     return (
         <>

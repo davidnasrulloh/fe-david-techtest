@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch, useSelector } from "react-redux";
 
 import{ RootState } from './../store/Feature/index';
@@ -14,7 +15,7 @@ import Loading from "../components/Loading";
 
 const UsersPage = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const dataUserList = useSelector((state: RootState) => state.users.data);
     const { data, page, total_pages } : UserData = dataUserList;
     const status = useSelector((state: RootState) => state.users.status);

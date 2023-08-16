@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice, PayloadAction  } from "@reduxjs/toolkit"
 import APIUsers from "../../../api/APIUsers"
-import { UserData, UserState } from "../../../types"
+import {UserData, UserState } from "../../../types"
 
 const initialState: UserState = {
     data: {
@@ -20,20 +20,12 @@ const initialState: UserState = {
 export const fetchUsers = createAsyncThunk("fetch/users", async(page: number)=>{
     try {
         const res = await APIUsers.getAllUsers(page)
-        return res?.data;
+        return (res as any)?.data;
     } catch (error) {
         console.log(error);
     }
 })
 
-export const fetchUserDetails = createAsyncThunk("fetch/userDetails", async(id: number)=>{
-    try {
-        const res = await APIUsers.getDetailsUser(id);
-        return res?.data;
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 const userSlice = createSlice({
     name: "users",
