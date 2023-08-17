@@ -1,27 +1,71 @@
-# React + TypeScript + Vite
+# David Nasrulloh Technical Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+### `Introduction`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggunakan React JS + Vite, Tailwind CSS, Framer Motion, Axios, Redux, Redux Thunk
 
-## Expanding the ESLint configuration
+#### Deployment Result
+---
+[David Nasrulloh App](https://fe-david-techtest.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### How to Run?
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+1. Clone this Project
+2. type `code .`
+5. On your Code editor, open terminal and then type `npm install`
+6. Run the project by typing `npm run dev` or `npm run build` for production
+7. Happy Testing
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Feature
+---
+| Feature                        | Completed?         |
+| ------------------------------ | ------------------ |
+| Responsive All Device    | :heavy_check_mark: |
+| Login Page    | :heavy_check_mark: |
+| List User              | :heavy_check_mark: |
+| Detail User     | :heavy_check_mark: |
+| Overview Page | :heavy_check_mark: |
+| Loading State | :heavy_check_mark: |
+| Validation Input in Login Page | :heavy_check_mark: |
+| 404 Not Found Page                 | :heavy_check_mark: |
+| Data Not Found Page                 | :heavy_check_mark: |
+| Lost Internet Connection                 | :heavy_check_mark: |
+
+### Result Of this Project
+
+1. **Login Page**
+   ![Login Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/frttwtw2psk3cxppgwod.jpg)
+
+2. **List User**
+   ![List User](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/jqradxyquscwj1ldj9d7.jpg)
+
+3. **Detail User**
+   ![Detail User](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/am5w4xsrpqarrpd42wam.jpg)
+
+4. **Overview Page**
+   ![Overview Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265567/david-technical-test/jyj22tm17tyjjojyxftz.jpg)
+
+5. **Loading State**
+   ![Loading State](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/drlnkay71kvqqfajpejw.jpg)
+
+6. **404 Not Found Page**
+   ![404 Not Found Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/x8qdowzstwwmvvza4onu.jpg)
+
+7. **Data Not Found Page**
+   ![Data Not Found Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/zxnotpnrisqqwdz2gaju.jpg)
+
+8. **Lost Internet Connection**
+   ![Lost Internet Connection](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265566/david-technical-test/p2rj1emic2eujvv3vv1w.jpg)
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+	<a href="https://linkedin.com/in/davidnasrulloh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="davidnasrulloh" height="30" width="40" /></a>
+	<a href="https://instagram.com/rishav_chanda" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="davidnasrulloh" height="30" width="40" /></a>
+	<a href="https://dribbble.com/davidnasrulloh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" alt="davidnasrulloh" height="30" width="40" /></a>
+	<a href="https://www.behance.net/davidnasrulloh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="davidnasrulloh" height="30" width="40" /></a>
+</p>
+
