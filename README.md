@@ -4,7 +4,7 @@
 
 ### `Introduction`
 
-Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggunakan React JS + Vite, Tailwind CSS, Framer Motion, Axios, Redux, Redux Thunk
+Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggunakan React JS + Vite, Tailwind CSS, Framer Motion, Axios, Redux
 
 ### Deployment Result
 ---
@@ -25,6 +25,7 @@ Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggun
 | Feature                        | Completed?         |
 | ------------------------------ | ------------------ |
 | Responsive All Device    | :heavy_check_mark: |
+| State Management with Redux    | :heavy_check_mark: |
 | Login Page    | :heavy_check_mark: |
 | List User              | :heavy_check_mark: |
 | Detail User     | :heavy_check_mark: |
