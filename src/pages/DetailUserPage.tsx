@@ -10,10 +10,10 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import { UserDetailState } from "../types";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-import LostConnection from "../components/emptystate/LostConnection";
 import Loading from "../components/Loading";
 import { fetchUserDetails } from "../store/Feature/FeaturesUsers/userDetailSlice";
 import HelmetComponent from "../components/HelmetComponent";
+import CustomEmptyResult from "../components/emptystate/CustomEmptyResult";
 
 
 const DetailUserPage = () => {
@@ -119,10 +119,17 @@ const DetailUserPage = () => {
             )}
 
             {(!isOnline || error === "Cannot read properties of undefined (reading 'data')") && (
-                <LostConnection
-                    title={error === "Cannot read properties of undefined (reading 'data')" ? "Your Data Not Found" : "Lost Your Connection"}
-                    buttonClickHandler={buttonTryAgainClick}
-                />
+                <>
+                    {error !== "Cannot read properties of undefined (reading 'data')" ? (
+                        <CustomEmptyResult
+                            title="Lost Your Connection"
+                            buttonClickHandler={buttonTryAgainClick}
+                        />
+                        ) : (
+                        <CustomEmptyResult title="Data User Not Found" buttonClickHandler={buttonTryAgainClick} />
+                        )
+                    }
+                </>
             )}
         </>
     )

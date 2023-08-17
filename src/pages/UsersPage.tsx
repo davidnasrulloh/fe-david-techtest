@@ -11,9 +11,9 @@ import styles from "../styles/style";
 import Navbar from "../components/Navbar";
 import CardUser from "../components/CardUser";
 import Loading from "../components/Loading";
-import LostConnection from "../components/emptystate/LostConnection";
 import { useNavigate } from "react-router-dom";
 import HelmetComponent from "../components/HelmetComponent";
+import CustomEmptyResult from "../components/emptystate/CustomEmptyResult";
 
 
 const UsersPage = () => {
@@ -104,7 +104,7 @@ const UsersPage = () => {
 
             {!isOnline && 
                 <>
-                    <LostConnection title="Lost Your Connection" buttonClickHandler={buttonTryAgainClick}/>
+                    <CustomEmptyResult title="Lost Your Connection" buttonClickHandler={buttonTryAgainClick}/>
                 </>
             }
         </>
