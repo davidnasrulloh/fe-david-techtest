@@ -14,6 +14,16 @@ import HelmetComponent from "../components/HelmetComponent";
 
 const LoginPage = () => {
 
+    const [passValid, setPassValid] = useState({
+        valid: true,
+        text: ""
+    });
+
+    const [emailValid, setEmailValid] = useState({
+        valid: true,
+        text: ""
+    });
+
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -24,20 +34,73 @@ const LoginPage = () => {
             ...data,
             [ev.target.name]: ev.target.value
         })
-    } 
 
-    const onSubmitHandler = () => {
+        if (ev.target.name === "password") {
+            if (data.password === "") {
+                setPassValid({
+                    valid: true,
+                    text: ""
+                });
+            } else if (data.password.length < 8) {
+                setPassValid({
+                    valid: false,
+                    text: "Password must be at least 8 characters"
+                });
+            } else {
+                setPassValid({
+                    valid: true,
+                    text: ""
+                });
+            }
+        } else if (ev.target.name === "email") {
+            if (data.email === "") {
+                setEmailValid({
+                    valid: true,
+                    text: ""
+                });
+            } else if (!isValidEmail(ev.target.value)) {
+                setEmailValid({
+                    valid: false,
+                    text: "Invalid email address"
+                });
+            } else {
+                setEmailValid({
+                    valid: true,
+                    text: ""
+                });
+            }
+        }
+    }
+    
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+        return emailRegex.test(email);
+    };
+
+    const onSubmitHandler = (event: React.FormEvent) => {
+        event.preventDefault();
+
         if(data.email !== "" && data.password !== ""){
-            alert(`
-                Email kamu ${data.email}
-                Password kamu ${data.password} 
-            `);
-            setData({
-                email: "",
-                password: ""
-            })
+            if(emailValid.valid && passValid.valid){
+                alert(`
+                    Email kamu ${data.email}
+                    Password kamu ${data.password} 
+                `);
+                setData({
+                    email: "",
+                    password: ""
+                })
+            } else {
+                alert("Pastikan email dan password valid")
+            }
+        } else {
+            alert("Email dan password tidak boleh kosong")
+            return false;
         }
     } 
+
+    console.log(passValid);
+    console.log(emailValid);
 
     return (
         <>
@@ -89,6 +152,8 @@ const LoginPage = () => {
                             labelStyle="text-gray-900"
                             leadingIcon={<IoMdMail fontSize="1.8rem" color="#595555"/>}
                             iconStyle={`${loginStyle.inputLabel}`}
+                            error={emailValid.valid}
+                            errorText={emailValid.text}
                         />
 
                         <CustomInput
@@ -102,6 +167,8 @@ const LoginPage = () => {
                             labelStyle="text-gray-900"
                             leadingIcon={<FaLock fontSize="1.8rem" color="#595555"/>}
                             iconStyle={`${loginStyle.inputLabel}`}
+                            error={passValid.valid}
+                            errorText={passValid.text}
                         />
 
                         <div className="xl:w-1/4 lg:w-1/2 mt-10">

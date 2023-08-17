@@ -53,6 +53,8 @@ export interface CustomInputProps {
     iconStyle?: string;
     color?: string;
     label?: string;
+    error?: boolean;
+    errorText?: string;
 }
 
 
