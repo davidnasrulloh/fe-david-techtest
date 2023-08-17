@@ -37,7 +37,7 @@ Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggun
 
 ### Result Of this Project
 
-#### 1. **Login Page**  <a href="https://fe-david-techtest.vercel.app/login" target="_blank">fe-david-techtest.vercel.app/login</a>
+#### 1. **Login Page**  <a href="https://fe-david-techtest.vercel.app/" target="_blank">fe-david-techtest.vercel.app/</a>
    ![Login Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/frttwtw2psk3cxppgwod.jpg)
 
 #### 2. **List User** <a href="https://fe-david-techtest.vercel.app/users" target="_blank">fe-david-techtest.vercel.app/users</a>
