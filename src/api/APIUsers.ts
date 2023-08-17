@@ -7,7 +7,6 @@ const APIUsers = {
             const response = await axiosInstance.get(`/users?page=${page}`);
             return response;
         } catch (error) {
-            // console.log(error);
             return error;
         }
     },
@@ -15,10 +14,8 @@ const APIUsers = {
     async getDetailsUser(id: number){
         try {
             const response = await axiosInstance.get(`/users/${id}`)
-            // console.log(response)
             return response;
         } catch (error) {
-            // console.log(error);
             return error;
         }
     }
