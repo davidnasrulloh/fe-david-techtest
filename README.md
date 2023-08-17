@@ -8,7 +8,7 @@ Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggun
 
 #### Deployment Result
 ---
-[David Nasrulloh App](https://fe-david-techtest.vercel.app/)
+https://fe-david-techtest.vercel.app/
 
 ### How to Run?
 
