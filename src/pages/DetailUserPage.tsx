@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import Navbar from "../components/Navbar"
 import { useNavigate, useParams } from "react-router-dom";
-import styles from "../styles/style";
+import styles, { detailUserStyle } from "../styles/style";
 import { RootState } from "../store/Feature";
 import { useEffect, useState } from 'react';
 import { AxiosError } from "axios";
@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import LostConnection from "../components/emptystate/LostConnection";
 import Loading from "../components/Loading";
 import { fetchUserDetails } from "../store/Feature/FeaturesUsers/userDetailSlice";
+import HelmetComponent from "../components/HelmetComponent";
 
 
 const DetailUserPage = () => {
@@ -92,35 +93,37 @@ const DetailUserPage = () => {
 
     return (
         <>
+            <HelmetComponent title="Detail User"/>
             <Navbar backgroundStyle="bg-white"/>
             {status === "loading" && <><Loading/></>}
             {status === "success" && (
-                <div className={`flex flex-col lg:flex-row w-full mt-64 xl:mt-80 3xl:mt-64 h-full ${styles.paddingX}`} >
-                    <div className="w-full lg:w-1/2 flex flex-col justify-start gap-10 mx-auto lg:mx-0">
+                <div className={` ${detailUserStyle.container} ${styles.paddingX}`} >
+                    <div className={`${detailUserStyle.sectionData}`}>
                         <Link to="/users">
-                            <div className="flex flex-row gap-4 justify-center lg:justify-start text-blue-600 hover:text-blue-500 transition delay-75">
+                            <div className={`${detailUserStyle.linkContainer}`}>
                                 {userData?.id !== 0 ? <IoMdArrowRoundBack fontSize="2.8rem"/> : "" }
                                 <p className="my-auto text-4xl font-bold">{userData?.first_name} {userData?.last_name}</p>
                             </div>
                         </Link>
-                        <div className="w-full flex flex-col items-center justify-center my-auto gap-10">
-                            <h1 className="text-7xl 2xl:text-8xl font-bold text-gray-800">{userData?.first_name} {userData?.last_name}</h1>
-                            <h4 className="text-4xl 2xl:text-5xl text-gray-400">{userData?.email}</h4>
+                        <div className={`${detailUserStyle.dataContainer}`}>
+                            <h1 className={`${detailUserStyle.dataTitle}`}>{userData?.first_name} {userData?.last_name}</h1>
+                            <h4 className={`${detailUserStyle.dataParagraph}`}>{userData?.email}</h4>
                         </div>
                     </div>
-                    <div className="w-full lg:w-5/6 2xl:w-3/4 p-20 mt-0 lg:mt-0 lg:py-0">
-                        <div className="w-full flex justify-end 3xl:justify-center">
-                            <img src={userData?.avatar} className="w-full xl:w-4/6 shadow-blue-200 lg:rounded-es-[320px] rounded-3xl shadow-2xl hover:rotate-12 transition-all hover:p-12 hover:delay-75"/>
+                    <div className={`${detailUserStyle.sectionImage}`}>
+                        <div className={`${detailUserStyle.imageContainer}`}>
+                            <img src={userData?.avatar} className={`${detailUserStyle.imageContent}`}/>
                         </div>
                     </div>
                 </div>
             )}
 
-            {(!isOnline || error === "Cannot read properties of undefined (reading 'data')" ) && 
-                <>
-                    <LostConnection buttonClickHandler={buttonTryAgainClick}/>
-                </>
-            }
+            {(!isOnline || error === "Cannot read properties of undefined (reading 'data')") && (
+                <LostConnection
+                    title={error === "Cannot read properties of undefined (reading 'data')" ? "Your Data Not Found" : "Lost Your Connection"}
+                    buttonClickHandler={buttonTryAgainClick}
+                />
+            )}
         </>
     )
 }

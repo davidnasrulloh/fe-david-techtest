@@ -9,6 +9,7 @@ import CustomButton from "../components/CustomButton";
 import { motion } from 'framer-motion';
 import { useState, ChangeEvent } from 'react';
 import CustomInput from "../components/CustomInput";
+import HelmetComponent from "../components/HelmetComponent";
 
 
 const LoginPage = () => {
@@ -40,6 +41,7 @@ const LoginPage = () => {
 
     return (
         <>
+            <HelmetComponent title="Login Page"/>
             <Navbar/>
             <section className={`${styles.paddingX} ${styles.paddingY} flex flex-row max-h-screen`}>
                 <motion.div 
@@ -55,7 +57,7 @@ const LoginPage = () => {
                             restDelta: 0.001
                         }
                     }}
-                    className="hidden lg:block my-auto lg:2/3 xl:w-3/4 2xl:w-3/5 3xl:w-2/4 mt-40 lg:pr-20 xl:pr-0 xl:mt-36 2xl:mt-12">
+                    className={`${loginStyle.imageContainer}`}>
                     <img src={loginIlustration} alt="" className="lg:w-full xl:w-3/4" />
                 </motion.div>
                 <motion.div
@@ -66,13 +68,13 @@ const LoginPage = () => {
                         duration: 1,
                         x: { duration: 1 }
                     }}
-                    className="w-full 2xl:w-3/4 xsm:pt-32 sm:pt-44 md:pt-44">
-                    <h1 className="font-bold text-gray-800 xsm:text-4xl md:text-5xl 2xl:text-6xl"><span className="text-blue-700">Login</span> Page</h1>
-                    <div className="border border-gray-300 border-b-4 rounded-full w-32 mt-6 2xl:mt-10"></div>
-                    <h3 className="text-2xl sm:text-3xl xl:text-4xl h-16 mt-4 bg-gradient-to-r from-blue-500 to-green-300 text-transparent bg-clip-text font-medium">
+                    className={`${loginStyle.loginContainer}`}>
+                    <h1 className={`${loginStyle.loginTitle}`}><span className="text-blue-700">Login</span> Page</h1>
+                    <div className={`${loginStyle.loginBorder}`}></div>
+                    <h3 className={`${loginStyle.loginTitleSecondary}`}>
                         Langkah Pertama Menuju Petualangan !
                     </h3>
-                    <p className="text-gray-400 text-xl sm:text-2xl w-full xl:w-2/3 leading-relaxed">Kami merindukan Anda. Masukkan email dan password informasi akun Anda untuk melanjutkan.</p>
+                    <p className={`${loginStyle.loginParagraph}`}>Kami merindukan Anda. Masukkan email dan password informasi akun Anda untuk melanjutkan.</p>
                     
                     <form action="" method="" onSubmit={onSubmitHandler} className="mt-12 flex flex-col w-full">
                         

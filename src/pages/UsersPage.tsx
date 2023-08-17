@@ -13,6 +13,7 @@ import CardUser from "../components/CardUser";
 import Loading from "../components/Loading";
 import LostConnection from "../components/emptystate/LostConnection";
 import { useNavigate } from "react-router-dom";
+import HelmetComponent from "../components/HelmetComponent";
 
 
 const UsersPage = () => {
@@ -73,7 +74,8 @@ const UsersPage = () => {
     }
 
     return (
-        <div>
+        <>
+            <HelmetComponent title="Users Page"/>
             <Navbar backgroundStyle="bg-white" />
 
             <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-10 mt-52`}>
@@ -102,10 +104,10 @@ const UsersPage = () => {
 
             {!isOnline && 
                 <>
-                    <LostConnection buttonClickHandler={buttonTryAgainClick}/>
+                    <LostConnection title="Your Data Not Found" buttonClickHandler={buttonTryAgainClick}/>
                 </>
             }
-        </div>
+        </>
     );
 }
 
