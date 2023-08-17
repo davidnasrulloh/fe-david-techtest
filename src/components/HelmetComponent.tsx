@@ -6,12 +6,10 @@ interface HelmetProps {
 
 const HelmetComponent = ({title}: HelmetProps) => {
     return (
-        <>
-            <Helmet>
-                <title>David | {title}</title>
-                <meta name="description" content="David Tehcnical Test" />
-            </Helmet>
-        </>
+        <Helmet>
+            <title>David | {title}</title>
+            <meta name="description" content="David Tehcnical Test" />
+        </Helmet>
     )
 }
 
