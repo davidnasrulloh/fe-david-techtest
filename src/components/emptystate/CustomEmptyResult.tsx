@@ -27,7 +27,7 @@ const CustomEmptyResult = ({ title, buttonClickHandler}:Props) => {
 
     return (
         <>
-            <div className={`${notFoundStyle.container} mt-16`}>
+            <div className={`${notFoundStyle.container} mt-16 2xl:mt-4`}>
                 <div className='w-full mx-auto'>
                 {
                     online && (
