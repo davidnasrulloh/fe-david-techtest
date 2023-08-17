@@ -104,7 +104,7 @@ const UsersPage = () => {
 
             {!isOnline && 
                 <>
-                    <LostConnection title="Your Data Not Found" buttonClickHandler={buttonTryAgainClick}/>
+                    <LostConnection title="Lost Your Connection" buttonClickHandler={buttonTryAgainClick}/>
                 </>
             }
         </>
