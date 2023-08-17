@@ -3,8 +3,6 @@ import './App.css'
 import SetupRoutes from './routers'
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './store/store';
-import {useEffect, useState} from "react"
-
 
 function App() {
 
