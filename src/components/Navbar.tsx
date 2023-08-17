@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { davidImg } from '../assets';
 import { AiFillCloseCircle } from './../../node_modules/react-icons/ai';
 import { HiMenu } from './../../node_modules/react-icons/hi';
@@ -36,25 +36,43 @@ const Navbar = ({backgroundStyle}: propsNavbar ) => {
                     </div>
                     <ul className='mobile-navbar_links sm:w-1/2 w-full'>
                         <li className='w-full'>
-                            <Link
+                            <NavLink
                                 onClick={openNavHandler}
-                                to="/">
+                                to="/"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 Login
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className='w-full'>
-                            <Link
+                            <NavLink
                                 onClick={openNavHandler}
-                                to="/users">
+                                to="/users"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 List User
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className='w-full'>
-                            <Link
+                            <NavLink
                                 onClick={openNavHandler}
-                                to="/overview">
+                                to="/overview"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 Overview
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
@@ -67,24 +85,42 @@ const Navbar = ({backgroundStyle}: propsNavbar ) => {
                             <p className='my-auto text-[24px] md:text-[28px] text-blue-900'><span className='font-bold'>David</span> Nasrulloh</p>
                         </div>
                     </Link>
-                    <ul className="navbar_links text-2xl xl:w-3/5 2xl:w-2/3 gap-10 font-semibold md:pl-0 pl-10">
+                    <ul className="navbar_links text-2xl xl:w-3/5 2xl:w-2/3 gap-10 font-medium md:pl-0 pl-10">
                         <li className='mr-10'>
-                            <Link
-                                to="/">
+                            <NavLink
+                                to="/"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 Login
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className='mr-10'>
-                            <Link
-                                to="/users">
+                            <NavLink
+                                to="/users"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 List User
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className=''>
-                            <Link
-                                to="/overview">
+                            <NavLink
+                                to="/overview"
+                                style={({ isActive }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : ""
+                                        };
+                                    }}
+                                >
                                 Overview
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
 
