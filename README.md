@@ -37,25 +37,25 @@ Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggun
 
 ### Result Of this Project
 
-#### 1. **Login Page** `https://fe-david-techtest.vercel.app/login`
+#### 1. **Login Page**  <a href="https://fe-david-techtest.vercel.app/login" target="_blank">fe-david-techtest.vercel.app/login</a>
    ![Login Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/frttwtw2psk3cxppgwod.jpg)
 
-#### 2. **List User** `https://fe-david-techtest.vercel.app/users`
+#### 2. **List User** <a href="https://fe-david-techtest.vercel.app/users" target="_blank">fe-david-techtest.vercel.app/users</a>
    ![List User](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/jqradxyquscwj1ldj9d7.jpg)
 
-#### 3. **Detail User** `https://fe-david-techtest.vercel.app/users/3`
+#### 3. **Detail User** <a href="https://fe-david-techtest.vercel.app/users/3" target="_blank">fe-david-techtest.vercel.app/users/3</a>
    ![Detail User](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/am5w4xsrpqarrpd42wam.jpg)
 
-#### 4. **Overview Page** `https://fe-david-techtest.vercel.app/overview`
+#### 4. **Overview Page** <a href="https://fe-david-techtest.vercel.app/overview" target="_blank">fe-david-techtest.vercel.app/overview</a>
    ![Overview Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265567/david-technical-test/jyj22tm17tyjjojyxftz.jpg)
 
 #### 5. **Loading State**
    ![Loading State](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265565/david-technical-test/drlnkay71kvqqfajpejw.jpg)
 
-#### 6. **404 Not Found Page** `https://fe-david-techtest.vercel.app/david`
+#### 6. **404 Not Found Page** <a href="https://fe-david-techtest.vercel.app/david" target="_blank">fe-david-techtest.vercel.app/david</a>
    ![404 Not Found Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/x8qdowzstwwmvvza4onu.jpg)
 
-#### 7. **Data Not Found Page** `https://fe-david-techtest.vercel.app/users/20`
+#### 7. **Data Not Found Page** <a href="https://fe-david-techtest.vercel.app/users/24" target="_blank">https://fe-david-techtest.vercel.app/users/24</a>
    ![Data Not Found Page](https://res.cloudinary.com/dabl8rcsp/image/upload/v1692265564/david-technical-test/zxnotpnrisqqwdz2gaju.jpg)
 
 #### 8. **Lost Internet Connection**
