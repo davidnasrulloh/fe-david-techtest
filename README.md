@@ -6,10 +6,9 @@
 
 Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggunakan React JS + Vite, Tailwind CSS, Framer Motion, Axios, Redux, Redux Thunk
 
-### `Deployment Result`
+### Deployment Result
 ---
-
-#### [https://fe-david-techtest.vercel.app/](https://fe-david-techtest.vercel.app/){:target="_blank"}
+#### <a href="https://fe-david-techtest.vercel.app/" target="_blank">https://fe-david-techtest.vercel.app/</a>
 
 ### How to Run?
 
