@@ -36,7 +36,7 @@ export const notFoundStyle = {
 
 export const loginStyle = {
     inputLabel : "pointer-events-none inset-y-0 left-0 pl-6" ,
-    inputStyle : "bg-gray-50 border border-blue-200 text-gray-900 text-xl rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full 2xl:w-3/4 pl-20 mt-4 p-2.5  dark:bg-blue-700 dark:border-blue-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-16",
+    inputStyle : "bg-gray-50 border border-blue-200 text-gray-900 text-xl rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full 2xl:w-3/4 pl-20 mt-4 p-2.5 h-16",
     imageContainer : "hidden lg:block my-auto lg:2/3 xl:w-3/4 2xl:w-3/5 3xl:w-2/4 mt-40 lg:pr-20 xl:pr-0 xl:mt-36 2xl:mt-12",
     loginContainer: "w-full 2xl:w-3/4 xsm:pt-32 sm:pt-44 md:pt-44",
     loginBorder: "border border-gray-300 border-b-4 rounded-full w-32 mt-6 2xl:mt-10",
