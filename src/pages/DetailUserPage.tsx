@@ -94,7 +94,7 @@ const DetailUserPage = () => {
     return (
         <>
             <HelmetComponent title="Detail User"/>
-            <Navbar backgroundStyle="bg-white"/>
+            {(error !== "Cannot read properties of undefined (reading 'data')") && <Navbar backgroundStyle="bg-white"/>}
             {status === "loading" && <><Loading/></>}
             {status === "success" && (
                 <div className={` ${detailUserStyle.container} ${styles.paddingX}`} >
