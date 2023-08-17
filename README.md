@@ -8,7 +8,7 @@ Project ini dibuat untuk memenuhi technical test, Dibuat nya project ini menggun
 
 #### Deployment Result
 ---
-https://fe-david-techtest.vercel.app/
+##### <a href="https://fe-david-techtest.vercel.app/" target="_blank">https://fe-david-techtest.vercel.app/</a>
 
 ### How to Run?
 
