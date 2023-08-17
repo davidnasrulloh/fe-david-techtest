@@ -7,7 +7,7 @@ import { IoMdMail } from './../../node_modules/react-icons/io';
 import { FaLock } from './../../node_modules/react-icons/fa';
 import CustomButton from "../components/CustomButton";
 import { motion } from 'framer-motion';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useCallback } from 'react';
 import CustomInput from "../components/CustomInput";
 import HelmetComponent from "../components/HelmetComponent";
 
@@ -29,11 +29,15 @@ const LoginPage = () => {
         password: ""
     });
 
-    const onChangeDataHandler = (ev: ChangeEvent<HTMLInputElement>) => {
-        setData({
-            ...data,
-            [ev.target.name]: ev.target.value
-        })
+    const onChangeDataHandler = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
+        ev.preventDefault();
+
+        const { name, value } = ev.target;
+
+        setData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
 
         if (ev.target.name === "password") {
             if (data.password === "") {
@@ -70,14 +74,14 @@ const LoginPage = () => {
                 });
             }
         }
-    }
+    }, [data])
     
     const isValidEmail = (email: string) => {
         const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
         return emailRegex.test(email);
     };
 
-    const onSubmitHandler = (event: React.FormEvent) => {
+    const onSubmitHandler = useCallback((event: React.FormEvent) => {
         event.preventDefault();
 
         if(data.email !== "" && data.password !== ""){
@@ -97,10 +101,7 @@ const LoginPage = () => {
             alert("Email dan password tidak boleh kosong")
             return false;
         }
-    } 
-
-    console.log(passValid);
-    console.log(emailValid);
+    },[data, emailValid, passValid]) 
 
     return (
         <>
