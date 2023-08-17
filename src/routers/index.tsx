@@ -1,6 +1,3 @@
-
-// import React from 'react'
-
 import { Routes, Route } from "react-router-dom"
 import Login from "../pages/LoginPage"
 import UsersPage from "../pages/UsersPage"

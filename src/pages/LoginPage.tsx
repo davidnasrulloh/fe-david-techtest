@@ -2,7 +2,6 @@
 import { loginIlustration } from "../assets"
 import Navbar from "../components/Navbar"
 import styles, { loginStyle } from "../styles/style"
-
 import { IoMdMail } from './../../node_modules/react-icons/io';
 import { FaLock } from './../../node_modules/react-icons/fa';
 import CustomButton from "../components/CustomButton";

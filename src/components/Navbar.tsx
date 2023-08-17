@@ -1,10 +1,7 @@
 
-// import { NavHashLink } from 'react-router-hash-link';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { davidImg } from '../assets';
-// import styles from '../dist/style';
-
 import { AiFillCloseCircle } from './../../node_modules/react-icons/ai';
 import { HiMenu } from './../../node_modules/react-icons/hi';
 import styles from '../styles/style';
