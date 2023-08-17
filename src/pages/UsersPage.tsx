@@ -2,18 +2,19 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import{ RootState } from './../store/Feature/index';
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState, Suspense } from "react";
 import { fetchUsers } from "../store/Feature/FeaturesUsers/userSlice";
 import { unwrapResult  } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { User, UserData } from "../types";
 import styles from "../styles/style";
 import Navbar from "../components/Navbar";
-import CardUser from "../components/CardUser";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
 import HelmetComponent from "../components/HelmetComponent";
 import CustomEmptyResult from "../components/emptystate/CustomEmptyResult";
+
+const CardUser = React.lazy(() => import("../components/CardUser"));
 
 
 const UsersPage = () => {
@@ -95,9 +96,11 @@ const UsersPage = () => {
             {status === "success" && (
                 <>
                     <div className={`${styles.paddingX} flex flex-wrap w-full justify-center gap-12 md:gap-20 my-16`}>
-                        {data.map((user: User) => (
-                            <CardUser {...user} key={user.id}/>
-                        ))}
+                        <Suspense fallback={<><Loading/></>}>
+                            {data.map((user: User) => (
+                                <CardUser {...user} key={user.id}/>
+                            ))}
+                        </Suspense>
                     </div>
                 </>
             )}
