@@ -1,7 +1,7 @@
 import { notFoundStyle } from '../../styles/style'
 import { lostConnectionIlustration } from '../../assets'
 import CustomButton from '../CustomButton'
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState, useEffect } from 'react';
 
 interface Props {
     title: string,
@@ -10,11 +10,30 @@ interface Props {
 
 const LostConnection = ({ title,buttonClickHandler}:Props) => {
     
+    const [online, setOnline] = useState(navigator.onLine);
+
+    useEffect(() => {
+        const handleOnline = () => setOnline(true);
+        const handleOffline = () => setOnline(false);
+
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('offline', handleOffline);
+
+        return () => {
+        window.removeEventListener('online', handleOnline);
+        window.removeEventListener('offline', handleOffline);
+        };
+    }, []);
+
     return (
         <>
             <div className={`${notFoundStyle.container} mt-16`}>
                 <div className='w-full mx-auto'>
-                    <img src={lostConnectionIlustration} alt="not found ilustration" className='w-2/4 md:w-1/3 lg:w-1/4 mx-auto' />
+                    {
+                        online && (
+                            <img src={lostConnectionIlustration} alt="not found ilustration" className='w-2/4 md:w-1/3 lg:w-1/4 mx-auto' />
+                        )
+                    }
                 </div>
                 <div className={`${notFoundStyle.contentContiner}`}>
                     <h3 className='font-bold text-3xl text-gray-900'>{title}</h3>
