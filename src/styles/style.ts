@@ -27,7 +27,7 @@ export const buttonStyle = {
 }
 
 export const notFoundStyle = {
-    container:  "w-full mx-auto my-auto py-44 fixed top-20",
+    container:  "w-full mx-auto my-auto py-44 fixed top-20 2xl:top-2",
     contentContiner: "flex flex-col justify-center items-center pt-16",
     imageContent: "w-2/4 md:w-1/3 lg:w-1/4 mx-auto",
     titleContent: "font-bold text-3xl text-gray-900",
