@@ -1,7 +1,8 @@
 import { notFoundStyle } from '../../styles/style'
 import { dataNotFoundIlustration, lostConnectionIlustration, notFoundIlustration} from '../../assets'
 import CustomButton from '../CustomButton'
-import { MouseEventHandler, useState, useEffect } from 'react';
+import { MouseEventHandler} from 'react';
+import useOnlineStatus from '../../hooks/useOnlineStatus';
 
 interface Props {
     title: string,
@@ -10,20 +11,7 @@ interface Props {
 
 const CustomEmptyResult = ({ title, buttonClickHandler}:Props) => {
     
-    const [online, setOnline] = useState(navigator.onLine);
-
-    useEffect(() => {
-        const handleOnline = () => setOnline(true);
-        const handleOffline = () => setOnline(false);
-
-        window.addEventListener('online', handleOnline);
-        window.addEventListener('offline', handleOffline);
-
-        return () => {
-        window.removeEventListener('online', handleOnline);
-        window.removeEventListener('offline', handleOffline);
-        };
-    }, []);
+    const online = useOnlineStatus();
 
     return (
         <>

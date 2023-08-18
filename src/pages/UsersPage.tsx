@@ -12,6 +12,7 @@ import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
 import HelmetComponent from "../components/HelmetComponent";
 import CustomEmptyResult from "../components/emptystate/CustomEmptyResult";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const CardUser = React.lazy(() => import("../components/CardUser"));
 
@@ -26,25 +27,9 @@ const UsersPage = () => {
     const status = useSelector((state: RootState) => state.users.status);
     const [pageNumber, setPageNumber] = useState(page);
 
-    const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
-
-
-    useEffect(() => {
-        window.addEventListener("online", updateOnlineStatus);
-        window.addEventListener("offline", updateOnlineStatus);
-
-        return () => {
-            window.removeEventListener("online", updateOnlineStatus);
-            window.removeEventListener("offline", updateOnlineStatus);
-        };
-    }, []);
-
-    const updateOnlineStatus = () => {
-        setIsOnline(navigator.onLine);
-    };
+    const isOnline = useOnlineStatus();
 
     useEffect(() => {
-
         if(!isOnline){
             return;
         }

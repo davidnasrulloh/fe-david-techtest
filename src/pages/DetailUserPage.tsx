@@ -14,6 +14,7 @@ import Loading from "../components/Loading";
 import { fetchUserDetails } from "../store/Feature/FeaturesUsers/userDetailSlice";
 import HelmetComponent from "../components/HelmetComponent";
 import CustomEmptyResult from "../components/emptystate/CustomEmptyResult";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 
 const DetailUserPage = () => {
@@ -28,34 +29,17 @@ const DetailUserPage = () => {
     const status = useSelector((state: RootState) => state.usersdetails.status);
 
     const [error, setError] = useState<string | null>(null);
-    const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
-
-    useEffect(() => {
-        window.addEventListener("online", updateOnlineStatus);
-        window.addEventListener("offline", updateOnlineStatus);
-
-        return () => {
-            window.removeEventListener("online", updateOnlineStatus);
-            window.removeEventListener("offline", updateOnlineStatus);
-        };
-    }, []);
-
-    const updateOnlineStatus = () => {
-        setIsOnline(navigator.onLine);
-    };
+    const isOnline = useOnlineStatus();
 
     useEffect(() => {
 
         if(!isOnline){
             return;
         }
-
         if (id === undefined) {
             return;
         }
-
-        const numericId = parseInt(id, 10);
-        
+        const numericId = parseInt(id, 10);        
 
         if (status === 'idle' && isOnline) {
             dispatch(fetchUserDetails(numericId))
@@ -67,8 +51,6 @@ const DetailUserPage = () => {
                     setError(err.message);
                 });
         }
-
-        
     
         if((userData.id?.toString() !== id) && isOnline){
             if(numericId <= totalDataUser){
